@@ -1,3 +1,4 @@
+/* ===Basic Css Code=== */
 * {
     margin: 0;
     padding: 0;
@@ -19,6 +20,7 @@ body {
     justify-content: center;
 }
 
+/* ===Reusablility === */
 .btn {
     padding: 3px 5px;
     border: none;
@@ -91,40 +93,4 @@ main {
 
 .topSection {
     margin-bottom: 20px;
-}
-
-.bottomSection {
-
-    h2 {
-        text-align: center;
-        text-transform: uppercase;
-        margin: 20px;
-    }
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-th,
-td {
-    padding: 10px 12px;
-    text-align: center;
-}
-
-th.row-label {
-    text-align: left;
-}
-
-thead th {
-    padding-bottom: 14px;
-    font-size: 1rem;
-    font-weight: 700;
-}
-
-tbody tr td,
-tbody tr th.row-label {
-    border-top: 1px solid #111;
 }
