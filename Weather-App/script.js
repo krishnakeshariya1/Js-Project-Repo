@@ -1,7 +1,7 @@
 // ===== Weather App Script =====
 
 // Your OpenWeatherMap API Key
-const API_KEY = "f5177dc9ed09a8d054ef84eb50b50a46";
+const API_KEY = ;
 
 // Select elements
 const searchBar = document.querySelector("#searchBar");
@@ -97,3 +97,4 @@ searchBar.addEventListener("keypress", (e) => {
 
 // Load default city when app starts
 getWeather("Gwalior");
+
