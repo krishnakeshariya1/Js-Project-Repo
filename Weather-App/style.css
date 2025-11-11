@@ -18,60 +18,114 @@ body {
     align-items: center;
     justify-content: center;
 }
-.btn{
+
+.btn {
     padding: 3px 5px;
     border: none;
     border-radius: 7px;
     background-color: rgba(255, 255, 255, 0.30);
 }
-.flex{
+
+.flex {
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
-.flexCol{
+
+.flexCol {
     display: flex;
     flex-direction: column;
 
 }
-.blury{
+
+.blury {
     background-color: rgba(255, 255, 255, 0.082);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 40px;
     margin: 10px 0;
+    width: 600px;
 }
-header{
+
+header {
     padding: 15px 20px;
+    display: flex;
+    justify-content: space-around;
 }
-header input{
+
+header input {
     color: black;
     border: none;
-    width: 250px;
+    width: 300px;
+    height: 30px;
     background-color: rgb(255, 255, 255, 0.30);
     padding: 3px 5px;
     border-radius: 7px;
 }
-header input:focus{
+
+header input:focus {
     outline: none;
 }
-main{
-    padding: 20px;
+
+main {
+    padding: 30px;
+    overflow: hidden;
 }
 
-.topSection img{
+.topSection img {
     width: 100px;
 }
-.text{
+
+.text {
     color: rgb(181, 178, 178);
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-.text span:nth-child(2){
+
+.text span:nth-child(2) {
     font-size: 22px;
     color: white;
 }
 
+.topSection {
+    margin-bottom: 20px;
+}
 
+.bottomSection {
+
+    h2 {
+        text-align: center;
+        text-transform: uppercase;
+        margin: 20px;
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+th,
+td {
+    padding: 10px 12px;
+    text-align: center;
+}
+
+th.row-label {
+    text-align: left;
+    font-weight: 600;
+}
+
+thead th {
+    padding-bottom: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+tbody tr td,
+tbody tr th.row-label {
+    border-top: 1px solid #111;
+}
