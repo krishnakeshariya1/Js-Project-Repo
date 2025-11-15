@@ -54,3 +54,9 @@ h1{
 .wrong{
     color: red;
 }
+.active{
+    border-bottom: 2px solid black;
+}
+#speedCalculate{
+    color:  black;
+}

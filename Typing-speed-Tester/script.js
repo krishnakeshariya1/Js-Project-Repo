@@ -1,37 +1,118 @@
-// -----Typing-Tester-----
+// ----- Typing Tester -----
 
-// ---Select Element---
+// Select Elements
 const randomPara = document.querySelector("#randomPara");
 const startBtn = document.querySelector("#startBtn");
 const resultPara = document.querySelector("#speedCalculate");
 const textArea = document.querySelector("#textArea");
 
-// add eventListener to button
+// Disable typing until test starts
+textArea.disabled = true;
 
-function renderSpan(line){
+// Variables
+let spans = [];
+let index = 0;
+let preVal = "";
+let timerStarted = false;
+let startTime = null;
+let endTime = null;
+
+// ---------------- RENDER SPANS ----------------
+function renderSpan(line) {
     randomPara.innerHTML = "";
-    const spanArray = [];
-    for(let i = 0 ; i<line.length; i++){
+    const arr = [];
+
+    for (let char of line) {
         const span = document.createElement("span");
-        span.textContent = line[i];
-        spanArray.push(span);
-        randomPara.appendChild(span)
+        span.textContent = char;
+        arr.push(span);
+        randomPara.appendChild(span);
     }
-    return spanArray;
+
+    return arr;
 }
-let spans = renderSpan("hello world");
-let index =0;
-textArea.addEventListener("input", ()=>{
+
+// ---------------- START TEST ----------------
+startBtn.addEventListener("click", startTest);
+
+function startTest() {
+    // Reset values
+    index = 0;
+    preVal = "";
+    timerStarted = false;
+    startTime = null;
+    endTime = null;
+    resultPara.textContent = "";
+    textArea.value = "";
+
+    // Render new text
+    const line = "hey everyone i am krishna keshariya"; // replace with random later
+    spans = renderSpan(line);
+
+    // Activate first character
+    spans[0].classList.add("active");
+
+    // Enable typing
+    textArea.disabled = false;
+    textArea.focus();
+}
+
+// ---------------- INPUT HANDLER ----------------
+textArea.addEventListener("input", () => {
     const typed = textArea.value;
-    console.log(typed)
+    const isBackSpace = typed.length < preVal.length;
 
-    if(index >= spans.length) return;
+    // ---- Start timer on first keystroke ----
+    if (!timerStarted && typed.length > 0) {
+        timerStarted = true;
+        startTime = Date.now();
+    }
 
-    const correctType = spans[index].textContent;
-    const typedText = typed[typed.length-1];
-    console.log(typedText)
-    spans[index].classList.add(typedText === correctType ? "correct" : "wrong");
+    // ---- Handle Backspace ----
+    if (isBackSpace) {
+        if (index > 0) {
+            index--;
 
-    index ++;
+            spans[index].classList.remove("correct", "wrong");
+            spans[index].classList.add("active");
+
+            spans[index + 1]?.classList.remove("active");
+        }
+        preVal = typed;
+        return;
+    }
+
+    // Stop if done
+    if (index >= spans.length) return;
+
+    // Compare the characters
+    const correctChar = spans[index].textContent;
+    const typedChar = typed[typed.length - 1];
+
+    if (typedChar === correctChar) {
+        spans[index].classList.add("correct");
+    } else {
+        spans[index].classList.add("wrong");
+    }
+
+    spans[index].classList.remove("active");
+    index++;
+
+    // If finished typing
+    if (index === spans.length) {
+        endTime = Date.now();
+        const totalTime = (endTime - startTime) / 1000; // sec
+        const minutes = totalTime / 60;
+
+        const totalChars = spans.length;
+        const wpm = (totalChars / 5) / minutes;
+
+        resultPara.textContent = `WPM: ${Math.round(wpm)} (Time: ${totalTime.toFixed(1)}s)`;
+        textArea.disabled = true;
+    }
+
+    // Set next active character
+    if (index < spans.length) spans[index].classList.add("active");
+
+    preVal = typed;
 });
-
