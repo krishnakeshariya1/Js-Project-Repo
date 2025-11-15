@@ -9,6 +9,16 @@ const textArea = document.querySelector("#textArea");
 // Disable typing until test starts
 textArea.disabled = true;
 
+// ---------random sentences -----------
+const sentences = [
+    "javascript makes your brain stronger than the gym",
+    "practice is the only shortcut that actually works",
+    "coding feels hard because you are growing",
+    "logic builds when you stop copying and start struggling",
+    "consistency beats talent every single time",
+    "every expert was a beginner who refused to quit"
+];
+
 // Variables
 let spans = [];
 let index = 0;
@@ -17,7 +27,13 @@ let timerStarted = false;
 let startTime = null;
 let endTime = null;
 
-// ---------------- RENDER SPANS ----------------
+// ----------RandomSentence Function-------
+function getRandomSentence() {
+    const index = Math.floor(Math.random() * sentences.length);
+    return sentences[index];
+}
+
+// ------------ RENDER SPANS ----------------
 function renderSpan(line) {
     randomPara.innerHTML = "";
     const arr = [];
@@ -32,7 +48,7 @@ function renderSpan(line) {
     return arr;
 }
 
-// ---------------- START TEST ----------------
+// --------- START TEST ------------
 startBtn.addEventListener("click", startTest);
 
 function startTest() {
@@ -46,7 +62,7 @@ function startTest() {
     textArea.value = "";
 
     // Render new text
-    const line = "hey everyone i am krishna keshariya"; // replace with random later
+    const line = getRandomSentence();
     spans = renderSpan(line);
 
     // Activate first character
