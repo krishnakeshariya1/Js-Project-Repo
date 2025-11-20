@@ -1,0 +1,295 @@
+/* ------------root------------ */
+:root {
+    --body-Color: #E3FDFD;
+    --heading-Color: #7a93b3;
+    --para-Color: #444;
+    --header-color: #c1ecf1;
+    --container-color: #A6E3E9;
+    --button-color: #00ADB5;
+}
+
+/*  -----------Basic----------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--body-Color);
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ---------reusable components------- */
+.btn {
+    background-color: var(--button-color);
+    color: white;
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 0.8rem;
+    cursor: pointer;
+}
+
+.flex {
+    display: flex;
+}
+
+/* ---------heading---------- */
+h1 {
+    font-size: 3.8rem;
+    letter-spacing: 0.16rem;
+    margin-bottom: 2rem;
+    color: var(--heading-Color);
+    text-align: center;
+}
+
+/* -------Main Container----- */
+.mainContainer {
+    width: 70rem;
+    max-width: 100%;
+    padding: 1.5rem 2rem;
+    border-radius: 3rem;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--container-color);
+    box-shadow:
+        rgba(0, 0, 0, 0.4) 0rem 0.2rem 0.4rem,
+        rgba(0, 0, 0, 0.3) 0rem 0.7rem 1.3rem -0.3rem,
+        rgba(0, 0, 0, 0.2) 0rem -0.3rem 0rem inset;
+}
+
+/* ---------Header----------- */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 0.6rem 0.8rem;
+    font-size: 1.5rem;
+    border-radius: 2rem;
+    border: none;
+    background-color: var(--header-color);
+    box-shadow:
+        rgb(204,219,232) 0.3rem 0.3rem 0.6rem inset,
+        rgba(255,255,255,0.5) -0.3rem -0.3rem 0.6rem inset;
+}
+
+#PhoneBookLogo {
+    width: 4.2rem;
+    aspect-ratio: 1;
+}
+
+/* ---------Modal----------- */
+#modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(0.2rem);
+    z-index: 50;
+}
+
+#modalOverlay.hidden {
+    display: none;
+}
+
+.modal {
+    background: var(--container-color);
+    padding: 2rem;
+    border-radius: 1.4rem;
+    width: 90%;
+    max-width: 40rem;
+    box-shadow: 0 0.6rem 2.4rem rgba(0,0,0,0.08);
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.form-section input {
+    padding: 1.2rem 1.4rem;
+    border-radius: 1rem;
+    border: 0.1rem solid rgba(45,92,99,0.08);
+    outline: none;
+    background: whitesmoke;
+    font-size: 1.5rem;
+    color: var(--para-Color);
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/* ---------Contact List-------- */
+.contacts {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.list-section h2 {
+    color: var(--para-Color);
+    margin-bottom: 2rem;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 2.6rem;
+}
+
+/* ------Contact Card------ */
+.contact-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem;
+    border-radius: 1.2rem;
+    background: var(--body-Color);
+    border: 0.1rem solid rgba(45,92,99,0.04);
+    box-shadow: 0 0.4rem 1.4rem rgba(45,92,99,0.05);
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.contact-info h3 {
+    font-size: 1.7rem;
+    color: var(--para-Color);
+}
+
+.contact-info p {
+    font-size: 1.4rem;
+    color: var(--para-Color);
+}
+
+.card-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.edit-btn,
+.delete-btn {
+    background: var(--button-color);
+    color: #fff;
+    padding: 0.6rem 1rem;
+    border-radius: 0.8rem;
+    border: none;
+    cursor: pointer;
+}
+
+/* ------ Responsive Media Queries ------ */
+
+/* Tablets */
+@media (max-width: 1024px){
+    h1{
+        font-size: 3.5rem;
+    }
+    .mainContainer{
+        width: 50rem;
+    }
+}
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3.2rem;
+    }
+    .mainContainer{
+        width: 40rem;
+    }
+
+    header {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    #searchInput {
+        width: 100%;
+        font-size: 1.2rem;
+    }
+
+    #PhoneBookLogo{
+        width: 3.6rem;
+        aspect-ratio: 1;
+    }
+    .contact-card {
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .card-actions {
+        align-self: flex-end;
+    }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.6rem;
+        letter-spacing: 0.07rem;
+    }
+
+    .mainContainer {
+        padding: 1rem 1.2rem;
+        border-radius: 1.8rem;
+    }
+
+    #searchInput {
+        font-size: 1.1rem;
+        padding: 0.6rem 1rem;
+    }
+    #PhoneBookLogo{
+        width: 3rem;
+        aspect-ratio: 1;
+    }
+
+    .contact-card {
+        padding: 1rem;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 1rem;
+    }
+
+    .modal {
+        padding: 1.5rem;
+        width: 92%;
+    }
+    #nameInput{
+        font-size: 1rem;
+        padding: 1rem 1.1rem;
+    }
+     #phoneInput{
+        font-size: 1rem;
+        padding: 1rem 1.1rem;
+    }
+    .contact-card h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+    .card-btns{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+}

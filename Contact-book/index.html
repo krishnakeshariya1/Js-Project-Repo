@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Book</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="flex">
+     <h1>Contact Book</h1>
+    <div class="mainContainer flex">
+    <!-- Search-bar -->
+    <header class="flex">
+        <input type="text" id="searchInput" placeholder="Search contact..." />
+        <div class="logo">
+            <img src="./assests/phone-book.svg" alt="phoneBook Logo" id="PhoneBookLogo">
+        </div>
+    </header>
+    <!-- Main Container -->
+
+    <main class="container">
+        <!-- Contact List -->
+        <div class="list-section">
+            <h2>Your Contacts</h2>
+            <div id="contactList" class="contacts"></div>
+        </div>
+        <div class="button-section">
+        <button id="addContact" class="btn">Add Contact</button>
+        <button id="clearAll" class="btn">Clear All</button>
+        </div>
+
+    </main>
+    </div>
+    <div id="modalOverlay" class="hidden flex">
+        <div class="modal">
+
+            <div class="form-section" id="formSection">
+                <input type="text" id="nameInput" placeholder="Enter name">
+                <input type="text" id="phoneInput" placeholder="Enter phone">
+
+                <div class="form-buttons flex ">
+                    <button id="addBtn" class="btn">Save</button>
+                    <button id="closeBtn" class="btn">Cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
