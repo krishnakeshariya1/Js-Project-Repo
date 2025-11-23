@@ -1,0 +1,80 @@
+/* ------------  Root  ----------- */
+:root{
+    --body-Color : #819A91;
+    --card-Color : rgb(255, 255, 255);
+    --font-Color : #504B38;
+}
+
+/* ------------  Base  ----------- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+  font-size: 62.5%; 
+  scroll-behavior: smooth;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background-color:var(--body-Color) ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: var(--font-Color);
+    padding: 2rem;
+}
+
+/* ------------- card ------------ */
+.card{
+    width: 30rem;
+    background-color: var(--card-Color) ;
+    overflow: hidden;
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
+}
+.img-Container{
+    width: 100%;
+    overflow: hidden;
+    height: 20rem;
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+}
+.img-Container img{
+    width: 100%;
+    object-fit: contain;
+}
+.textSec{
+    padding: 0 1rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    justify-content: center;
+}
+.title h2{
+    font-size: 2.5rem;
+}
+.price-Tag{
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+.category{
+    font-size: 1.5rem;
+    display: flex;
+    gap: 1.3rem;
+}
+.category >:first-child{
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+.button-Sec button{
+    background-color: red;
+    border: none;
+    padding: 0.4rem 0.6rem;
+    color: whitesmoke;
+    letter-spacing: 0.13rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+}
