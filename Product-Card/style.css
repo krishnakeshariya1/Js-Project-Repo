@@ -1,0 +1,144 @@
+/* ------------  Root  ----------- */
+:root {
+    --body-Color: #fff;
+    --card-Color: rgb(255, 255, 255);
+    --h1-COlor: #0F1A17;
+}
+
+/* ------------  Base  ----------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--body-Color);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
+    padding: 2rem;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+header {
+    background-color: #EFE9E3;
+    width: 100%;
+    padding: 0.8rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+header ul {
+    justify-content: space-around;
+}
+
+.logo-Sec {
+    font-size: 1.8rem;
+    gap: 1rem;
+}
+
+.logo-Sec img {
+    width: 80px;
+}
+
+.li-Sec {
+    gap: 4.5rem;
+    font-size: 1.5rem;
+}
+
+.li-Sec a {
+    color: black;
+    text-decoration: none;
+}
+
+main {
+    width: 100%;
+    margin: 5rem 0;
+}
+
+.mainCard-Section {
+    background-color: #EFE9E3 ;
+    width: 100%;
+    overflow: hidden;
+    justify-content: space-evenly;
+    border-radius: 2rem;
+    margin: 3.5rem 0;
+}
+
+.img-Section {
+    min-width: 45rem;
+    overflow: hidden;
+}
+
+.text-Section {
+    max-width: 60rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 2rem;
+}
+
+.img-Section img {
+    width: 50rem;
+    height: 100%;
+}
+
+.text-Section h1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 7rem;
+    flex-direction: column;
+    letter-spacing: 5px;
+    color: #b79678;
+}
+
+.text-Section p {
+    word-spacing: 0.6rem;
+    font-size: 2rem;
+    color: gray;
+    text-align: justify;
+    margin-bottom: 3rem;
+}
+
+.text-Section button {
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #F9F8F6;
+    font-weight: 700;
+}
+
+.text-Section button a {
+    color: black;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+.explore-Section h2{
+    font-size: 3rem;
+    word-spacing: 0.4rem;
+    letter-spacing: 1.8px;
+    margin-bottom: 2rem;
+}
+.grid-Container{
+    width: 100%;
+    border: 1px solid black;
+    padding: 1rem;
+    display: grid;
+}
+.grid-Container .card{
+    width: 400px;
+    height: 100px;
+    border: 1px solid black;
+}
