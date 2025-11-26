@@ -164,11 +164,25 @@ main {
 }
 .card-Text{
     padding: 1rem;
-    line-height: 2.2rem;
+    line-height: 2.5rem;
 }
 .card-Text h3{
     font-size: 2rem;
+    margin-bottom: 1rem;
 }
 .card-Text p{
     font-size: 1.6rem;
+}
+.card-Button button{
+    padding: 1rem 1.5rem;
+    background-color: #c7a98c;
+    border: none;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    border-radius: 0.5rem;
+}
+.card-Button{
+    text-align: end;
+    margin: 1rem;
 }

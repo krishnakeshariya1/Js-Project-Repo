@@ -2,49 +2,86 @@
 // -----------------  Elements  ------------------//
 const exploreSection = document.getElementById("explore-Section");
 const gridContainer = document.querySelector(".grid-Container");
+const LoadMoreButton = document.querySelector("#loadMore");
 
 // --------------------  API  ------------------ //
 const url = "https://dummyjson.com/products/category/mens-shoes";
 
+// --------------- array ---------------//
+let shoes = [];
 // -------------- render Cards ----------------//
-function renderCard(data){
+function renderCard(){
+const randomShoes = getRandomShoes();
 
-const card = document.createElement("div");
-card.classList.add("card");
+ gridContainer.innerHTML = "";
+randomShoes.forEach(shoe => {
 
-const cardImg = document.createElement("div");
-cardImg.classList.add("card-img");
+        // Create card
+        const card = document.createElement("div");
+        card.classList.add("card");
 
-const img = document.createElement("img");
-img.src = "";
-img.alt = "";
+        // Card image
+        const cardImg = document.createElement("div");
+        cardImg.classList.add("card-img");
 
-cardImg.appendChild(img);
+        const img = document.createElement("img");
+        img.src = shoe.images[0] || "https://via.placeholder.com/150";
+        img.alt = shoe.title;
 
-const cardText = document.createElement("div");
-cardText.classList.add("card-Text");
+        cardImg.appendChild(img);
 
-const title = document.createElement("h3");
-title.textContent = "Title";
+        // Card text
+        const cardText = document.createElement("div");
+        cardText.classList.add("card-Text");
 
-const price = document.createElement("p");
-price.textContent = "$12";
+        const title = document.createElement("h3");
+        title.textContent = shoe.title;
 
-const category = document.createElement("p");
-category.textContent = "Category: men shoes";
+        const price = document.createElement("p");
+        price.textContent = `$${shoe.price}`;
 
-const rating = document.createElement("p");
-rating.textContent = "Rating: 5 star";
+        const category = document.createElement("p");
+        category.textContent = `Category: ${shoe.category}`;
 
-const stock = document.createElement("p");
-stock.textContent = "Stock: 8";
+        const rating = document.createElement("p");
+        rating.textContent = `Rating: ${shoe.rating} star ⭐`;
 
-cardText.append(title, price, category, rating, stock);
+        const stock = document.createElement("p");
+        stock.textContent = `Stock: ${shoe.stock}`;
 
-card.append(cardImg, cardText);
+        cardText.append(title, price, category, rating, stock);
 
-gridContainer.appendChild(card);
+        // Append image and text to card
+        card.append(cardImg, cardText);
+
+        // Append card to container
+        gridContainer.appendChild(card);
+    });
 
 }
 
 // --------------- fetch Shoes ---------------//
+async function fetchShoes() {
+    try{
+        const res = await fetch(url);
+
+        if(!res.ok) throw new Error("Network Error");
+        const data = await res.json();
+        shoes = data.products;
+        renderCard();
+    }
+    catch{
+        console.log("Some error found");
+    }
+}
+// ------------- Get random Shoe -----------//
+function getRandomShoes(count = 4) {
+    const shuffled = [...shoes].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+}
+
+// --------------- event Listner ----------//
+LoadMoreButton.addEventListener("click", renderCard);
+fetchShoes();
+
+// https://png.pngtree.com/png-clipart/20250206/original/pngtree-single-shoes-png-image_19569834.png
