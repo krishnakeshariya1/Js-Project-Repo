@@ -6,7 +6,8 @@ const gridContainer = document.querySelector(".grid-Container");
 // --------------------  API  ------------------ //
 const url = "https://dummyjson.com/products/category/mens-shoes";
 
-function renderCard(){
+// -------------- render Cards ----------------//
+function renderCard(data){
 
 const card = document.createElement("div");
 card.classList.add("card");
@@ -45,4 +46,5 @@ card.append(cardImg, cardText);
 gridContainer.appendChild(card);
 
 }
-renderCard();
+
+// --------------- fetch Shoes ---------------//
