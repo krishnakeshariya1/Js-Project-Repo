@@ -135,7 +135,6 @@ main {
     font-size: 3rem;
     word-spacing: 0.4rem;
     letter-spacing: 1.8px;
-    margin-bottom: 2rem;
 }
 .grid-Container{
     width: 100%;
@@ -185,4 +184,20 @@ main {
 .card-Button{
     text-align: end;
     margin: 1rem;
+}
+.search-Section{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 2rem ;
+}
+#searchBar{
+    width: 50rem;
+    padding: 1rem 1.3rem;
+    border-radius: 1rem;
+    border: 1px solid rgb(208, 208, 208);
+    font-size: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
 }

@@ -3,6 +3,7 @@
 const exploreSection = document.getElementById("explore-Section");
 const gridContainer = document.querySelector(".grid-Container");
 const LoadMoreButton = document.querySelector("#loadMore");
+const searchBar = document.querySelector("#searchBar");
 
 // --------------------  API  ------------------ //
 const url = "https://dummyjson.com/products/category/mens-shoes";
@@ -80,8 +81,14 @@ function getRandomShoes(count = 4) {
     return shuffled.slice(0, count);
 }
 
+function searchShoe(){
+    let filtered = shoes.filter( shoe =>{
+         return (shoe.title.toLowerCase().includes(searchBar.value.toLowerCase())) 
+    })
+    
+}
+
 // --------------- event Listner ----------//
 LoadMoreButton.addEventListener("click", renderCard);
 fetchShoes();
 
-// https://png.pngtree.com/png-clipart/20250206/original/pngtree-single-shoes-png-image_19569834.png
