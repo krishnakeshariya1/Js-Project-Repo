@@ -1,0 +1,27 @@
+/* ------------  Root  ----------- */
+:root {
+    --body-Color: #FAF7F3;
+    --header-Background-Color : #efddc5;
+    --card-Color: #fff;
+    --h1-COlor: #0F1A17;
+}
+
+/* ------------  Base  ----------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--body-Color);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 2rem;
+}

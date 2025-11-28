@@ -40,11 +40,9 @@ header {
     border-radius: 1rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-
-header ul {
-    justify-content: space-around;
+header ul{
+    justify-content: space-between;
 }
-
 .logo-Sec {
     font-size: 1.8rem;
     gap: 1rem;
@@ -57,6 +55,7 @@ header ul {
 .li-Sec {
     gap: 4.5rem;
     font-size: 1.5rem;
+
 }
 
 .li-Sec a {
