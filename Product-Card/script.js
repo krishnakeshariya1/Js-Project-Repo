@@ -11,11 +11,10 @@ const url = "https://dummyjson.com/products/category/mens-shoes";
 // --------------- array ---------------//
 let shoes = [];
 // -------------- render Cards ----------------//
-function renderCard(){
-const randomShoes = getRandomShoes();
+function renderCard(list){
 
  gridContainer.innerHTML = "";
-randomShoes.forEach(shoe => {
+list.forEach(shoe => {
 
         // Create card
         const card = document.createElement("div");
@@ -69,7 +68,7 @@ async function fetchShoes() {
         if(!res.ok) throw new Error("Network Error");
         const data = await res.json();
         shoes = data.products;
-        renderCard();
+        renderCard(getRandomShoes());
     }
     catch{
         console.log("Some error found");
@@ -81,14 +80,20 @@ function getRandomShoes(count = 4) {
     return shuffled.slice(0, count);
 }
 
+// --------------Search Shoe ------------- //
 function searchShoe(){
     let filtered = shoes.filter( shoe =>{
          return (shoe.title.toLowerCase().includes(searchBar.value.toLowerCase())) 
     })
+    renderCard(filtered);
     
 }
 
 // --------------- event Listner ----------//
-LoadMoreButton.addEventListener("click", renderCard);
-fetchShoes();
+LoadMoreButton.addEventListener("click", ()=>{
+    const randomShoes = getRandomShoes(4);
+    renderCard(randomShoes);
+});
+searchBar.addEventListener("input", searchShoe);
 
+fetchShoes();
