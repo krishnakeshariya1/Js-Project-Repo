@@ -1,27 +1,237 @@
-/* ------------  Root  ----------- */
-:root {
-    --body-Color: #FAF7F3;
-    --header-Background-Color : #efddc5;
-    --card-Color: #fff;
-    --h1-COlor: #0F1A17;
-}
-
-/* ------------  Base  ----------- */
+/* ---------- Reset & Base ---------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-html {
-    font-size: 62.5%;
+html{
+    font-size: 64.5%;
     scroll-behavior: smooth;
 }
-
 body {
     width: 100%;
     height: 100vh;
-    background-color: var(--body-Color);
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    padding: 2rem;
+    background-color: #eeeeee;
+}
+/* ---------- reusable component -------- */
+.flex{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* ---------- Header ---------- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header .left-Section img{
+    width: 8rem;
+}
+.header .left-Section input{
+    width: 30rem;
+    padding: 0.8rem 1rem;
+    border-radius: 2rem;
+    border: 1px solid rgb(210, 210, 210);
+}
+.header .flex{
+    gap: 4rem;
+}
+.header .right-Section a{
+    color: black;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    transition: all 0.3 ease;
+}
+.header .right-Section a:hover{
+   transform: scale(1.1);
+}
+
+/* ---------- Container ---------- */
+.container {
+    width: 100%;
+    gap: 1rem;
+    padding: 1rem 4rem;
+}
+/* ---------- category ----------- */
+.category-Section{
+    padding: 2rem 0;
+}
+.category-Section  .flex{
+    justify-content: start;
+    gap: 3.5rem;
+}
+.category-Section ul li{
+    list-style-type: none;
+    font-size: 1.5rem;
+    background-color: #ffffff;
+    padding: 0.5rem 0.8rem;
+    border-radius: 2rem;
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Filter Section */
+.price-section {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.price-section p {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    font-weight: 600;
+}
+.price-section label{
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.price-section input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.price-section button {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.price-section button:hover {
+    background-color: #555;
+}
+
+/* Cart Section */
+.cart-section {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.cart-section h3 {
+    margin-bottom: 0.5rem;
+}
+
+#cart-items div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+#cart-items button {
+    background-color: #ff4d4f;
+    border: none;
+    color: #fff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#cart-items button:hover {
+    background-color: #ff7875;
+}
+
+/* ---------- Main Content ---------- */
+.main-content {
+    flex: 1;
+}
+
+/* ---------- Product Grid ---------- */
+.grid-Container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+/* Product Card */
+.card {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+
+.card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.card p {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.card button {
+    padding: 0.4rem 0.8rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: #555;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .sidebar .filter-section, .sidebar .cart-section {
+        width: 48%;
+    }
+
+    .header .search-bar input {
+        width: 150px;
+    }
 }

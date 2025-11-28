@@ -3,23 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fake-Store-Web</title>
+    <title> E-Commerce</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <ul class="flex">
-            <div class="logo-Sec flex">
-                <img src="./assests/—Pngtree—shopping mall logo_5406131.png" alt="shoes logo">
-                <p>Fake Store </p>
-            </div>
-            <div class="li-Sec flex">
-                <a href="">HOME</a>
-                <a href="">EXPLOUR</a>
-                <a href="">FOOTER</a>
-            </div>
-        </ul>
+    <!-- Header Section -->
+    <header class="header flex">
+        <div class="left-Section flex">
+            <img src="./assests/—Pngtree—shopping mall logo_5406131.png" alt="store logo">
+            <input type="text" id="searchBar" placeholder="Search products...">
+        </div>
+        <div class="right-Section flex">
+            <a href="./">Home</a>
+            <a href="./">Cart</a>
+            <a href="./">Orders</a>
+        </div>
     </header>
+
+    <div class="container">
+        <!-- category -->
+         <section class="category-Section ">
+            <ul class="flex">
+                <li>All category</li>
+                <li>clothes</li>
+                <li>shoes</li>
+                <li>Electronics</li>
+                <li>Health & Care </li>
+            </ul>
+         </section>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Filter price Section -->
+            <section class="price-section">
+                <p>Filter by Price</p>
+                <label for="price-range">$0</label>
+                <input type="range" id="price-range" name="price-range" min="0" max="1000" value="500" step="10">
+                <button id="applyFilter">Apply</button>
+            </section>
+
+            <!-- Cart Section -->
+            <section class="cart-section">
+                <h3>Cart</h3>
+                <div id="cart-items"></div>
+                <p>Total: $<span id="cart-total">0</span></p>
+            </section>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Product Grid -->
+            <div class="grid-Container"></div>
+        </main>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
