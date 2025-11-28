@@ -4,17 +4,20 @@
     padding: 0;
     box-sizing: border-box;
 }
-html{
-    font-size: 64.5%;
+
+html {
+    font-size: 62.5%;
     scroll-behavior: smooth;
 }
+
 body {
     width: 100%;
     height: 100vh;
     background-color: #eeeeee;
 }
+
 /* ---------- reusable component -------- */
-.flex{
+.flex {
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -27,25 +30,28 @@ body {
     align-items: center;
     padding: 1rem 2rem;
     background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
-.header .left-Section img{
+.header .left-Section img {
     width: 8rem;
 }
-.header .left-Section input{
+
+.header .left-Section input {
     width: 30rem;
     padding: 0.8rem 1rem;
     border-radius: 2rem;
     border: 1px solid rgb(210, 210, 210);
 }
-.header .flex{
+
+.header .flex {
     gap: 4rem;
 }
-.header .right-Section a{
+
+.header .right-Section a {
     color: black;
     text-decoration: none;
     font-size: 2rem;
@@ -53,8 +59,9 @@ body {
     letter-spacing: 1.5px;
     transition: all 0.3 ease;
 }
-.header .right-Section a:hover{
-   transform: scale(1.1);
+
+.header .right-Section a:hover {
+    transform: scale(1.1);
 }
 
 /* ---------- Container ---------- */
@@ -63,15 +70,18 @@ body {
     gap: 1rem;
     padding: 1rem 4rem;
 }
+
 /* ---------- category ----------- */
-.category-Section{
+.category-Section {
     padding: 2rem 0;
 }
-.category-Section  .flex{
+
+.category-Section .flex {
     justify-content: start;
     gap: 3.5rem;
 }
-.category-Section ul li{
+
+.category-Section ul li {
     list-style-type: none;
     font-size: 1.5rem;
     background-color: #ffffff;
@@ -81,7 +91,7 @@ body {
 
 /* ---------- Sidebar ---------- */
 .sidebar {
-    width: 250px;
+    width: 28rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -89,10 +99,11 @@ body {
 
 /* Filter Section */
 .price-section {
+    width: 100%;
     background-color: #fff;
     padding: 1rem;
     border-radius: 0.8rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .price-section p {
@@ -101,7 +112,8 @@ body {
     text-align: center;
     font-weight: 600;
 }
-.price-section label{
+
+.price-section label {
     font-weight: 600;
     font-size: 1.5rem;
 }
@@ -113,10 +125,11 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
 .price-section button {
     width: 100%;
     padding: 0.5rem;
-    background-color: #333;
+    background-color: #555;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -124,19 +137,23 @@ body {
 }
 
 .price-section button:hover {
-    background-color: #555;
+    background-color: #888;
 }
 
 /* Cart Section */
 .cart-section {
+    width: 100%;
     background-color: #fff;
     padding: 1rem;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.cart-section h3 {
+.cart-section p {
+    font-size: 1.5rem;
     margin-bottom: 0.5rem;
+    text-align: center;
+    font-weight: 600;
 }
 
 #cart-items div {
@@ -175,7 +192,7 @@ body {
     background-color: #fff;
     padding: 1rem;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -227,7 +244,8 @@ body {
         justify-content: space-between;
     }
 
-    .sidebar .filter-section, .sidebar .cart-section {
+    .sidebar .filter-section,
+    .sidebar .cart-section {
         width: 48%;
     }
 
