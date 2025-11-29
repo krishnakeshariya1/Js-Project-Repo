@@ -31,45 +31,66 @@ async function fetchProduct() {
     }
 }
 // ---------- random Products --------- //
-function getRandomProducts(product = 9){
+function getRandomProducts(product = 10){
     let suffle = [...products].sort(()=> 0.5 - Math.random());
     return suffle.slice(0, product);
 }
 //  ---------- render Card ----------- //
-function renderCard(product) {
-    product.forEach( p => {
-    const card = document.createElement("div");
-    card.className = "card";
+function renderCard(productList) {
 
-    const img = document.createElement("img");
-    img.src = p.image;
-    img.alt = p.title;
+    gridContainer.innerHTML = ""; // clear old cards
 
-    const title = document.createElement("h3");
-    title.textContent = p.title;
+    productList.forEach(p => {
+        const card = document.createElement("div");
+        card.className = "card";
 
-    const price = document.createElement("p");
-    price.textContent = p.price;
+        // -------- Image Section -------- //
+        const imgBox = document.createElement("div");
+        imgBox.className = "card-img";
 
-    const category = document.createElement("p");
-    category.textContent = `Category: ${p.category}`;
+        const img = document.createElement("img");
+        img.src = p.image;
+        img.alt = p.title;
 
-    const rating = document.createElement("p");
-    rating.textContent = `Rating: ${p.rating.rate}`;
+        imgBox.appendChild(img);
 
-    const btn = document.createElement("button");
-    btn.textContent = "Add to Cart";
+        // -------- Text Section -------- //
+        const info = document.createElement("div");
+        info.className = "card-info";
 
-    // append all children
-    card.appendChild(img);
-    card.appendChild(title);
-    card.appendChild(price);
-    card.appendChild(category);
-    card.appendChild(rating);
-    card.appendChild(btn);
+        const title = document.createElement("h3");
+        title.textContent = p.title;
 
-    gridContainer.appendChild(card)
+        const price = document.createElement("p");
+        price.className = "price";
+        price.textContent = `$${p.price}`;
+
+        const category = document.createElement("p");
+        category.className = "category";
+        category.textContent = `Category: ${p.category}`;
+
+        const rating = document.createElement("p");
+        rating.className = "rating";
+        rating.textContent = `Rating: ${p.rating.rate} ⭐`;
+
+        const btn = document.createElement("button");
+        btn.classList.add("btn")
+        btn.textContent = "Add to Cart";
+
+        // append text items
+        info.appendChild(title);
+        info.appendChild(price);
+        info.appendChild(category);
+        info.appendChild(rating);
+        info.appendChild(btn);
+
+        // final card structure
+        card.appendChild(imgBox);
+        card.appendChild(info);
+
+        gridContainer.appendChild(card);
     });
 }
+
 
 fetchProduct()
