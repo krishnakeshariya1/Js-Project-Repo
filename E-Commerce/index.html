@@ -1,61 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> E-Commerce</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- Header Section -->
-    <header class="header flex">
-        <div class="left-Section flex">
-            <img src="./assests/—Pngtree—shopping mall logo_5406131.png" alt="store logo">
-            <input type="text" id="searchBar" placeholder="Search products...">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-commerce</title>
+    <link rel="stylesheet" href="src/style.css">
+  </head>
+  <body>
+    <header class="section-Navbar">
+      <nav class="navbar">
+        <div class="left-Content">
+          <img src="https://t4.ftcdn.net/jpg/03/34/53/51/360_F_334535136_vvbWaKEpsHIMS4dpJUxgXZL6clQX7VGs.jpg" alt="amazon Logo">
+          <input type="text" id="searchBar" placeholder="Search...">
         </div>
-        <div class="right-Section flex">
-            <a href="./">Home</a>
-            <a href="./">Cart</a>
-            <a href="./">Orders</a>
+        <div class="right-Content">
+          <a href="./"><img src="https://www.freeiconspng.com/thumbs/cart-icon/basket-cart-icon-27.png" alt="cart logo"></a>
+          <p>Login / SignUP</p>
         </div>
+      </nav>
+      <section class="top-Bar">
+        <div class="main-Bar">
+          <div class="background-Text">
+            <h1>ONLINE</h1>
+            <img src="./src/assets/2adffa77828b7c808ccc7e5a0a11af56-removebg-preview.png" alt="">
+          </div>
+        </div>
+      </section>
     </header>
-     <!-- category -->
-         <section class="category-Section ">
-            <ul class="flex">
-                <li>All Category</li>
-                <li>men's Clothing</li>
-                <li>women's Clothing</li>
-                <li>Electronics</li>
-                <li>jewellery </li>
-            </ul>
-         </section>
-
-    <div class="container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <!-- Filter price Section -->
-            <section class="price-section">
-                <p>Filter by Price</p>
-                <label for="price-range">$0</label>
-                <input type="range" id="price-range" name="price-range" min="0" max="1000" value="500" step="10">
-                <button id="applyFilter" class="btn">Apply</button>
-            </section>
-
-            <!-- Cart Section -->
-            <section class="cart-section">
-                <p>Cart</p>
-                <div id="cart-items"></div>
-                <p>Total: $<span id="cart-total">0</span></p>
-            </section>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Product Grid -->
-            <div class="grid-Container"></div>
-        </main>
-    </div>
-
-    <script src="script.js"></script>
-</body>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>

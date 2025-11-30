@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Stylish&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*------------ Base/reset ----------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+}
+
+/* ------------- Navbar ------------- */
+.section-Navbar {
+  background-color: #fff;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.left-Content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.left-Content img {
+  width: 15rem;
+  fill: #fff;
+}
+
+.left-Content input {
+  width: 40rem;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(203, 203, 203);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.right-Content {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  font-size: 1.8rem;
+}
+
+.right-Content img {
+  width: 2rem;
+}
+
+.top-Bar {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  overflow: hidden;
+  background: #8c8c8c;
+  background: linear-gradient(90deg, rgba(140, 140, 140, 1) 13%, rgba(120, 120, 120, 1) 48%, rgba(85, 85, 85, 1) 91%);
+  position: relative;
+}
+.background-Text{
+  background-color: transparent;
+  width: 100%;
+  height: 45rem;
+  overflow: hidden;
+}
+.background-Text h1{
+  position: absolute;
+  font-weight: 700;
+  font-size: 20rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-30%);
+  color: #E8D1C5;
+  letter-spacing: 1.2rem;
+  z-index: 1;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.background-Text img{
+  width: 35rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
