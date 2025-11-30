@@ -1,33 +1,82 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>E-commerce</title>
-    <link rel="stylesheet" href="src/style.css">
-  </head>
-  <body>
-    <header class="section-Navbar">
-      <nav class="navbar">
-        <div class="left-Content">
-          <img src="https://t4.ftcdn.net/jpg/03/34/53/51/360_F_334535136_vvbWaKEpsHIMS4dpJUxgXZL6clQX7VGs.jpg" alt="amazon Logo">
-          <input type="text" id="searchBar" placeholder="Search...">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-commerce</title>
+  <link rel="stylesheet" href="src/style.css">
+</head>
+
+<body>
+  <header class="section-Navbar">
+    <div class="navbar">
+      <div class="left-Content">
+        <img src="https://t4.ftcdn.net/jpg/03/34/53/51/360_F_334535136_vvbWaKEpsHIMS4dpJUxgXZL6clQX7VGs.jpg"
+          alt="amazon Logo">
+        <input type="text" id="searchBar" placeholder="Search...">
+      </div>
+      <div class="right-Content">
+        <a href="./"><img src="https://www.freeiconspng.com/thumbs/cart-icon/basket-cart-icon-27.png"
+            alt="cart logo"></a>
+        <p>Login / SignUP</p>
+      </div>
+    </div>
+    <section class="top-Bar">
+      <div class="main-Bar">
+        <div class="background-Text">
+          <h1>ONLINE</h1>
+          <img src="./src/assets/2adffa77828b7c808ccc7e5a0a11af56-removebg-preview.png" alt="">
         </div>
-        <div class="right-Content">
-          <a href="./"><img src="https://www.freeiconspng.com/thumbs/cart-icon/basket-cart-icon-27.png" alt="cart logo"></a>
-          <p>Login / SignUP</p>
+      </div>
+    </section>
+  </header>
+  <div class="category-Section">
+    <ul>
+      <span>All category</span>
+      <span>Men fashion</span>
+      <span>Women Fashion</span>
+      <span>Electronics</span>
+      <span>Health & Care</span>
+    </ul>
+  </div>
+  <div class="main-Body">
+    <aside class="aside-Container">
+      <div class="filter-Section">
+        <div class="price-Filter-Section">
+          <h2>Filter Price</h2>
+          <label>$0 - $10</label>
+          <input type="range" id="priceRange" min="0" max="100" value="0">
         </div>
-      </nav>
-      <section class="top-Bar">
-        <div class="main-Bar">
-          <div class="background-Text">
-            <h1>ONLINE</h1>
-            <img src="./src/assets/2adffa77828b7c808ccc7e5a0a11af56-removebg-preview.png" alt="">
+      </div>
+      <div class="total-Price-Section">
+        <div class="cart">
+          <div class="productName">
+            <h3>Product Title</h3>-
+            <p>$100</p>
+          </div>
+          <div class="product-Quantity">
+            <p>Quantity</p>-
+            <p>*2</p>
+          </div>
+          <div class="grant-Total">
+            <h4>Grand Total</h4>-
+            <p>$100</p>
           </div>
         </div>
-      </section>
-    </header>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+      </div>
+    </aside>
+    <main class="grid-Container">
+      <div class="abc"></div>
+      <div class="abc"></div>
+      <div class="abc"></div>
+      <div class="abc"></div>
+      <div class="abc"></div>
+    </main>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>
