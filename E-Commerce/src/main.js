@@ -187,5 +187,4 @@ priceRange.addEventListener("input", () => {
     document.querySelector(".range-Label").textContent = `$0 - $${selectedPrice}`;
     applyFilters();
 })
-
 getProducts();
