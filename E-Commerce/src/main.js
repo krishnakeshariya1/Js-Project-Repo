@@ -17,6 +17,7 @@ const cardContainer = document.querySelector(".grid-Container");
 const loadMoreBtn = document.querySelector(".loadBtn");
 const categoryLi = document.querySelectorAll(".category-Section ul li");
 const cartContainer = document.querySelector(".total-Price-Section");
+const CartBtn = document.querySelectorAll(".buy-Now-Button");
 
 // --------------- API --------------- //
 const Url = "https://fakestoreapi.com/products";
@@ -85,6 +86,7 @@ function createCard(product) {
     endRow.classList.add('end-row');
 
     const addToCartBtn = document.createElement('button');
+    addToCartBtn.dataset.id = product.id;
     addToCartBtn.classList.add('buy-Now-Button');
     addToCartBtn.textContent = "Add to Cart";
     endRow.appendChild(addToCartBtn);
@@ -186,5 +188,12 @@ priceRange.addEventListener("input", () => {
     selectedPrice = Number(priceRange.value);
     document.querySelector(".range-Label").textContent = `$0 - $${selectedPrice}`;
     applyFilters();
+});
+CartBtn.forEach( btn =>{
+    btn.addEventListener("click",()=>{
+        const id = Number(btn.dataset.id)
+        console.log(id);
+    })
 })
 getProducts();
+
