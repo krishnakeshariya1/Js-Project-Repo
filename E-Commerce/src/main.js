@@ -3,7 +3,7 @@ import './style.css'
 // ------------ variables ------------ //
 let products = [];
 let filteredProducts = [];
-const cart = [];
+let cart = [];
 const perPage = 9;
 let currentIndex = 0;
 let selectedCategory = 'all';
@@ -17,7 +17,6 @@ const cardContainer = document.querySelector(".grid-Container");
 const loadMoreBtn = document.querySelector(".loadBtn");
 const categoryLi = document.querySelectorAll(".category-Section ul li");
 const cartContainer = document.querySelector(".total-Price-Section");
-const CartBtn = document.querySelectorAll(".buy-Now-Button");
 
 // --------------- API --------------- //
 const Url = "https://fakestoreapi.com/products";
@@ -41,16 +40,19 @@ async function getProducts() {
         console.log("Network Error");
     }
 }
-
+getProducts();
 // ------------- render Function ---------- //
+
 const renderProducts = (arr) => {
     cardContainer.innerHTML = "";
     arr.forEach(createCard);
+    eventFunction()
 }
 
 // ------------ Append function ----------- //
 const appendCards = (arr) => {
     arr.forEach(createCard);
+    eventFunction()
 }
 
 // ------------ Create card (shared logic) -------- //
@@ -168,6 +170,118 @@ const applyFilters = () => {
     renderProducts(filteredProducts.slice(0, perPage));
     currentIndex = perPage;
 }
+// ---------- add cart Function --------- //
+
+function addToCart(id){
+    const item = cart.find((p)=> p.id === id);
+
+    if(item){
+        item.quantity++;
+    }
+    else{
+        const product = products.find((p)=> p.id === id);
+        if(!product) return 
+
+        cart.push(
+            {
+                id : product.id,
+                title : product.title,
+                price : product.price,
+                image : product.image,
+                quantity: 1,
+            }
+        );
+    }
+    saveCart();
+    updateCartUI();
+}
+// --------- saveCart --------- //
+function saveCart(){
+    localStorage.setItem('cart', JSON.stringify(cart));
+};
+
+// ---------- load cart function --------- //
+function loadCart(){
+    const saved = localStorage.getItem("cart");
+    cart = saved ? JSON.parse(saved) :[];
+    updateCartUI();
+}
+loadCart();
+function increaseQuantity(id){
+    const item = cart.find((p) => p.id === id);
+    if (!item) return;
+
+    item.quantity++;
+    saveCart();
+    updateCartUI();
+}
+function decreaseQuantity(id) {
+    const item = cart.find((p) => p.id === id);
+    if (!item) return;
+
+    if (item.quantity > 1) {
+        item.quantity--;
+    } else {
+        cart = cart.filter((p) => p.id !== id);
+    }
+
+    saveCart();
+    updateCartUI();
+}
+function removeFromCart(id){
+    cart = cart.filter((p) => p.id !== id);
+    saveCart();
+    updateCartUI();
+}
+function updateCartUI() {
+    const totalItems = document.querySelector(".cart-count");
+    const totalPrice = document.querySelector(".cart-total");
+
+    cartContainer.innerHTML = "";
+
+    if (cart.length === 0) {
+        cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+        if (totalItems) totalItems.textContent = "0";
+        if (totalPrice) totalPrice.textContent = "₹0";
+        return;
+    }
+
+    let sum = 0;
+    let itemCount = 0;
+
+    cart.forEach((item) => {
+        sum += item.price * item.quantity;
+        itemCount += item.quantity;
+
+        cartContainer.innerHTML += `
+        <div class="cart-item">
+            <img src="${item.image}" alt="${item.title}" >
+            <div class="cart-info">
+                <h4>${item.title}</h4>
+                <p>₹${item.price}</p>
+                <div class="quantity-controls">
+                    <button onclick="decreaseQuantity(${item.id})">-</button>
+                    <span>${item.quantity}</span>
+                    <button onclick="increaseQuantity(${item.id})">+</button>
+                </div>
+            </div>
+            <button class="delete-btn" onclick="removeFromCart(${item.id})">X</button>
+        </div>`;
+    });
+
+    if (totalItems) totalItems.textContent = itemCount;
+    if (totalPrice) totalPrice.textContent = "₹" + sum;
+}
+
+function eventFunction(){
+    const CartBtn = document.querySelectorAll(".buy-Now-Button");
+    CartBtn.forEach((btn)=>{
+        btn.addEventListener("click",()=>{
+            const id = Number(btn.dataset.id);
+            addToCart(id);           
+        })
+    })
+}
 
 // ------------ Event listeners ------------ //
 loadMoreBtn.addEventListener("click", loadMOre);
@@ -189,11 +303,3 @@ priceRange.addEventListener("input", () => {
     document.querySelector(".range-Label").textContent = `$0 - $${selectedPrice}`;
     applyFilters();
 });
-CartBtn.forEach( btn =>{
-    btn.addEventListener("click",()=>{
-        const id = Number(btn.dataset.id)
-        console.log(id);
-    })
-})
-getProducts();
-
