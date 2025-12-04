@@ -259,34 +259,28 @@ body {
   border-radius: 3rem;
 }
 .product-Details{
-  text-align: start;
-  padding: 0 2rem;
-  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1rem;
+  padding: 0 0.7rem;
 }
 .product-Details h3{
   font-size: 2rem;
-  margin-bottom: 0.5rem;
 }
 .product-Details p{
   font-size: 1.7rem;
-  margin-bottom: 1rem;
-  line-height: 2rem;
 }
 .product-Details .price-tag{
-  font-size: 2rem;
-  font-weight: 800;
-  margin-bottom: 2rem;
-}
-.end-row{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 1rem;
+  font-size: 1.8rem;
+  font-weight: 500;
 }
 
-.buy-Now-Button{
+.end-row{
   width: 100%;
+}
+
+.add-cart-btn{
   padding: 0.7rem 1rem;
   background-color: #555;
   border: none;
@@ -295,26 +289,29 @@ body {
   font-weight: 700;
   letter-spacing: 1.55px;
   font-size: 1.5rem;
+  width: 100%;
+  margin-bottom: 1rem;
 }
-.buy-Now-Button:hover{
+.add-cart-btn:hover{
   background-color: black;
 }
-.qty{
+.qty-controls{
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 3rem;
-  justify-content: space-evenly;
   margin-bottom: 0.5rem;
 }
-.qty button{
+.qty-minus ,
+.qty-plus{
   background-color: #fff;
   border: 1px solid rgb(206, 206, 206);
   padding: 0.4rem 0.6rem;
   border-radius: 0.3rem;
   font-size: 2rem;
 }
-.qty span{
-  font-size: 3rem;
+.qty-count{
+  font-size: 2.5rem;
 }
 .loadBtn{
   padding: 0.5rem 1rem;
@@ -334,25 +331,32 @@ body {
   margin-bottom: 2rem;
 }
 .cart-info h4{
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  padding: 0.5rem;
+  font-size: 1.7rem;
+  margin-bottom: 0.8rem;
 }
 .cart-info p{
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+  padding: 0 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
-.quantity-controls {
-  margin-left: 1rem;
+.qty-controls span{
+  font-size: 2rem;
+}
+.cart-summary{
   display: flex;
-  align-items: center;
-  gap: 3rem;
+  align-items: start;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.5rem;
 }
-.quantity-controls button{
-  padding:  0.5rem 0.5rem;
+.cart-delete{
+  margin-top: 1rem;
+  padding: 0.5rem;
   border: none;
-  border-radius: 3px;
-}
-.quantity-controls span{
-  font-size: 2rem;
+  border-radius: 0.5rem;
+  background-color: red;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 1.55px;
 }
