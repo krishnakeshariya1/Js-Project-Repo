@@ -258,8 +258,8 @@ function updateCartUI() {
             <img src="${item.image}" alt="${item.title}" >
             <div class="cart-info">
                 <h4>${item.title}</h4>
-                <p>₹${item.price}</p>
-                <div class="quantity-controls">
+                <p>$${item.price}</p>
+                <div class="quantity-controls ">
                     <button onclick="decreaseQuantity(${item.id})">-</button>
                     <span>${item.quantity}</span>
                     <button onclick="increaseQuantity(${item.id})">+</button>

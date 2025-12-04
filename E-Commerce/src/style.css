@@ -324,4 +324,35 @@ body {
   color: #fff;
   border-radius: 0.8rem;
 }
-
+.cart-item{
+  overflow: hidden;
+}
+.cart-item img{
+  width: 40%;
+  height: 40%;
+  object-fit: contain;
+  margin-bottom: 2rem;
+}
+.cart-info h4{
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.cart-info p{
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.quantity-controls {
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+.quantity-controls button{
+  padding:  0.5rem 0.5rem;
+  border: none;
+  border-radius: 3px;
+}
+.quantity-controls span{
+  font-size: 2rem;
+}
