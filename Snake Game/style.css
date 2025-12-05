@@ -1,9 +1,37 @@
+/* -------------- root ------------- */
 :root{
-    --bg-Primary-Color : #333;
-    --text-Primary-Color : #f2f2f2 ;
-    --
-}
+        /*  background Color  */
+    --bg-Primary-Color : #222;
 
+       /* Text Colors */
+    --text-Primary-Color : #f2f2f2 ;
+
+      /* spacing Varible */
+    --space-xs :0.4rem;
+    --space-sm : 0.8rem;
+    --space-md: 1.6rem;
+    --space-lg : 2.4rem;
+    --space-xl : 3.2rem;
+    --space-2xl : 4rem;
+
+       /* Border colors*/
+    --border-Primary-Color : #555;
+     
+       /* Border Radius */
+    --border-Radius-Xs : 0.4rem;
+    --border-Radius-Sm : 0.8rem;
+    --border-Radius-md : 1.2rem;
+    --border-Radius-lg : 1.6rem;
+    --border-Radius-Xlg: 2rem;
+    
+      /* Font Size */
+    --font-Size-s :1rem;
+    --font-Size-Md : 2rem;
+    --font-Size-Lg :2.6rem;
+    --font-Size-Xl : 3rem;
+    
+}
+/* ------------- Base ------------- */
 *{
     margin: 0;
     padding: 0;
@@ -24,5 +52,32 @@ section{
     height: 100vh;
 }
 section{
-
+    padding: var(--space-2xl);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: var(--space-md);
+}
+section .infos{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.info{
+    font-size: var(--font-Size-s);
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--border-Primary-Color);
+    border-radius: var(--border-Radius-Sm);
+}
+.board{
+    border: 1px solid var(--border-Primary-Color);
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30px , 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(30px, 1fr));
+}
+.block{
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid #777;
 }
