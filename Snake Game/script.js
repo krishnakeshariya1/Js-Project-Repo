@@ -1,11 +1,13 @@
 // ---------- Elements ---------- //
 const board = document.querySelector('.board');
-const blockHeight = 40;
-const blockWeight = 40;
+const resetBtn = document.querySelector(".reStartBtn")
+const blockSize = 40;
 
 // ----- Total row and Cols ---- //
 const rows = Math.floor(board.clientHeight / blockHeight);
 const cols = Math.floor(board.clientWidth / blockWeight);
+
+
 const blocks = [];
 const snake = [{
     x: 1,
@@ -14,17 +16,19 @@ const snake = [{
 let direction = "right";
 let directionInterval = null;
 let score = 0;
-let food = {
-    x: Math.floor(Math.random() * rows),
-    y: Math.floor(Math.random() * cols)
-};
+let food = generateFood();
 
+function generateFood() {
+    return {
+        x: Math.floor(Math.random() * rows),
+        y: Math.floor(Math.random() * cols)
+    }
+}
 function makeBlocks() {
     for (let i = 0; i < rows; i++) {
         for (let k = 0; k < cols; k++) {
             const block = document.createElement("div");
             block.classList.add("block");
-            block.innerHTML = `${i}-${k}`
             board.appendChild(block);
             blocks[`${i}-${k}`] = block;
         }
@@ -32,7 +36,6 @@ function makeBlocks() {
     return;
 }
 makeBlocks();
-
 function renderSnake() {
 
     blocks[`${food.x}-${food.y}`].classList.add("food");
@@ -53,8 +56,7 @@ function renderSnake() {
 
 
     if (head.x < 0 || head.x >= rows || head.y < 0 || head.y >= cols) {
-        alert("Game over");
-        clearInterval(directionInterval);
+        resetGame();
         return
     }
 
@@ -64,7 +66,7 @@ function renderSnake() {
             x: Math.floor(Math.random() * rows),
             y: Math.floor(Math.random() * cols)
         };
-        
+        snake.unshift(head);
     }
 
     snake.forEach(block => {
@@ -73,13 +75,42 @@ function renderSnake() {
 
     snake.unshift(head);
     snake.pop();
+
     snake.forEach(block => {
         blocks[`${block.x}-${block.y}`].classList.add("fill");
     });
 };
-directionInterval = setInterval(() => {
-    renderSnake()
-}, 300)
+function resetGame() {
+    clearInterval(directionInterval);
+
+    document.querySelector(".game-Over-Message").style.display = "flex";
+
+    Object.values(blocks).forEach(block => {
+        block.classList.remove("fill", "food");
+    });
+
+    snake.length = [{x:1, y:3}];
+    direction = "right";
+    score  =0;
+    food = generateFood();
+    
+    directionInterval = null
+}
+function startGame() {
+    document.querySelector(".game-Over-Message").style.display = "none";
+
+    directionInterval = setInterval(() => {
+        renderSnake();
+    }, 300);
+}
+
+
+addEventListener("keypress", () => {
+    document.querySelector(".modal h3").style.display = "none";
+    directionInterval = setInterval(() => {
+        renderSnake();
+    }, 300)
+})
 addEventListener("keydown", (event) => {
     if (event.key == "ArrowUp") {
         direction = "up"
@@ -94,3 +125,4 @@ addEventListener("keydown", (event) => {
         direction = "left"
     }
 });
+resetBtn.addEventListener("click",startGame);
