@@ -3,6 +3,7 @@
         /*  background Color  */
     --bg-Primary-Color : #222;
     --bg-Fill-Color :#fdfdfd ;
+    --bg-Food-Color : greenyellow ;
 
        /* Text Colors */
     --text-Primary-Color : #f2f2f2 ;
@@ -85,4 +86,7 @@ section .infos{
 }
 .fill{
     background-color:  var(--bg-Fill-Color);
+}
+.food{
+    background-color: var(--bg-Food-Color);
 }
