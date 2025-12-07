@@ -6,7 +6,13 @@ const blocks =[];
 const snake =[{
     x:1,
     y:3
-},{},{}]
+},{
+    x:1,
+    y:4
+},{
+    x:1,
+    y:5
+}];
 
 // ----- Total row and Cols ---- //
 const cols = Math.floor(board.clientHeight / blockHeight);
@@ -17,12 +23,10 @@ function makeBlocks(){
         for(let k =0; k<cols; k++){
             const block = document.createElement("div");
             block.classList.add("block");
-            blocks[`${rows}-${cols}`] = block;
             board.appendChild(block);
-            
+            blocks[`${i}-${k}`] = block;
         }
     }
-    return;
+    return ;
 }
-makeBlocks();
-console.log(blocks.length)
+makeBlocks()
