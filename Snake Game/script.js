@@ -4,12 +4,12 @@ const resetBtn = document.querySelector(".reStartBtn")
 const blockSize = 40;
 
 // ----- Total row and Cols ---- //
-const rows = Math.floor(board.clientHeight / blockHeight);
-const cols = Math.floor(board.clientWidth / blockWeight);
+const rows = Math.floor(board.clientHeight / blockSize);
+const cols = Math.floor(board.clientWidth / blockSize);
 
 
 const blocks = [];
-const snake = [{
+let snake = [{
     x: 1,
     y: 3
 }];
@@ -89,7 +89,7 @@ function resetGame() {
         block.classList.remove("fill", "food");
     });
 
-    snake.length = [{x:1, y:3}];
+    snake = [{x:1, y:3}];
     direction = "right";
     score  =0;
     food = generateFood();
@@ -125,4 +125,4 @@ addEventListener("keydown", (event) => {
         direction = "left"
     }
 });
-resetBtn.addEventListener("click",startGame);
+resetBtn.addEventListener("click", startGame);
