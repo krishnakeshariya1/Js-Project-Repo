@@ -13,24 +13,24 @@
             <button>Add New Task</button>
         </nav>
         <section class="board">
-            <div class="task-column">
+            <div id="todo" class="task-column">
                 <div class="heading">
                     <div class="left">To Do</div>
                     <div class="right">Count</div>
                 </div>
-                <div class="task" draggable="true">
+                <div draggable="true" class="task" >
                     <h2>Task 1</h2>
                     <p>Description of Task</p>
                     <button>Delete</button>
                 </div>
             </div>
-            <div class="task-column">
+            <div id="Progress" class="task-column">
                 <div class="heading">
                     <div class="left">In Progress </div>
                     <div class="right">Count</div>
                 </div>
             </div>
-            <div class="task-column">
+            <div id="done" class="task-column">
                 <div class="heading">
                     <div class="left">Done</div>
                     <div class="right">Count</div>
@@ -38,5 +38,18 @@
             </div>
         </section>
     </main>
+    <div class="modal">
+        <div class="bg"></div>
+        <div class="center">
+            <input type="text"
+            placeholder="Task-Title">
+            <textarea placeholder="Task Description"></textarea>
+            <button
+            id="add-new-task"
+            class="add-task-btn">Add Task</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
