@@ -2,6 +2,11 @@ const todo = document.querySelector("#todo");
 const progess = document.querySelector("#Progress");
 const done = document.querySelector("#done");
 const tasks = document.querySelectorAll(".task");
+const toggleModal = document.querySelector("#toggle-modal");
+const modal = document.querySelector(".modal");
+const modalBG = document.querySelector(".modal .bg");
+
+
 let dragElement =null;
 
 tasks.forEach(task =>{
@@ -29,3 +34,10 @@ const addDragEventOnColumn =(column)=>{
 addDragEventOnColumn(todo);
 addDragEventOnColumn(progess);
 addDragEventOnColumn(done);
+
+toggleModal.addEventListener("click",()=>{
+    modal.classList.add("active");
+});
+modalBG.addEventListener("click",()=>{
+    modal.classList.remove("active");
+});

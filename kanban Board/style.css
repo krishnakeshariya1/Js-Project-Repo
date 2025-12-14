@@ -5,6 +5,8 @@
     --bg-button-Color: #333;
     --bg-task-Color: #4f4f4f63;
     --bg-delete-button-Color : red;
+    --bg-addTask-buttton : green;
+    --bg-modal-Color : #292929;
 
     /* padding variable */
     --nav-padding: 1.5rem 3rem;
@@ -124,12 +126,22 @@ section .task-column .task button{
     width: 100%;
     top: 0;
     left: 0;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 }
+.modal.active{
+    display: flex;
+}
+.modal .bg{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: #303030ae;
+    backdrop-filter: blur(5px);
+}
 .modal .center{
-    background-color:var(--bg-button-Color);
+    background-color:var(--bg-modal-Color);
     padding: var(--padding-xxl);
     border-radius: var(--border-radius-md);
     display: flex;
@@ -145,7 +157,7 @@ section .task-column .task button{
     color: var(--primary-Color);
 }
 .modal .center button{
-    background-color: var(--bg-delete-button-Color);
+    background-color: var(--bg-addTask-buttton);
     border: none;
     border-radius: var(--border-radius-s);
     padding: var(--padding-sm) var(--padding-md);
