@@ -104,7 +104,6 @@ function startGame() {
     }, 300);
 }
 
-
 addEventListener("keypress", () => {
     document.querySelector(".modal h3").style.display = "none";
     directionInterval = setInterval(() => {

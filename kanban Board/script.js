@@ -5,6 +5,7 @@ const tasks = document.querySelectorAll(".task");
 const toggleModal = document.querySelector("#toggle-modal");
 const modal = document.querySelector(".modal");
 const modalBG = document.querySelector(".modal .bg");
+const addTaskBtn = document.querySelector(".add-task-btn");
 
 
 let dragElement =null;
@@ -40,4 +41,22 @@ toggleModal.addEventListener("click",()=>{
 });
 modalBG.addEventListener("click",()=>{
     modal.classList.remove("active");
+});
+
+addTaskBtn.addEventListener("click",()=>{
+  const taskDescValue = document.querySelector("#task-description-input").value;
+  const taskTitleValue = document.querySelector("#task-title-input").value;
+
+  const div = document.createElement("div");
+
+  div.classList.add("task");
+  div.setAttribute("draggable", "true");
+
+  div.innerHTML = `<h2>${taskTitleValue}</h2>
+                    <p>${taskDescValue}</p>
+                    <button>Delete</button>`
+
+  todo.appendChild(div);
+
+  modal.classList.remove("active");
 });
