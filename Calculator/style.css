@@ -1,14 +1,17 @@
 :root{
      /* bg-Colors */
-    --bg-Body-Color: #222;
-    --primary-Color : #f5f5f5;
-    --bg-Main-Container-Color :aqua ;
+    --bg-Body-Color: #ffffff;
+    --primary-Color : #111;
+    --bg-Main-Container-Color :#F2F2F2;
+    --bg-Display-Color : #F0F0F0;
+    --bg-Button-Color : #C9CDCF;
 
     /* padding variables */
     --padding-sm : 0.5rem;
     --padding-md : 1rem;
     --padding-l: 1.4rem;
     --padding-xl: 2rem;
+    --padding-xxl : 3rem;
 
     /* font size */
     --font-Size-s : 1rem;
@@ -33,4 +36,53 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.main-container{
+    padding: var(--padding-l) var(--padding-xl);
+    background-color:var(--bg-Main-Container-Color);
+    border-radius: var(--padding-xxl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-xxl);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+.main-container .display-container{
+    width: 100%;
+}
+.main-container .display-container input{
+    width: 100%;
+    font-size: var(--font-Size-xl);
+    padding: var(--padding-sm);
+    text-align: end;
+    border-radius: var(--padding-sm);
+    background-color: var(--bg-Display-Color);
+    border-radius: var(--padding-l);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
+}
+.buttons-area{
+    padding: 0 var(--padding-md);
+    display: grid;
+    grid-template-columns: repeat(4, minmax(4rem, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(4rem, 1fr));
+    gap: var(--padding-md);
+}
+.buttons-area .btn{
+    width:  6rem;
+    text-align: center;
+    aspect-ratio: 1;
+    background-color: var(--bg-Button-Color);
+    border: none;
+    border-radius: 50%;
+    font-size: var(--font-Size-md);
+    padding: var(--padding-sm);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+.buttons-area .large{
+    background-color: palevioletred;
+    width: 14rem;
+    height: 5.8rem;
+    border-radius: 1rem;
+    grid-column-start: 3;
+    grid-column-end: 5;
 }
